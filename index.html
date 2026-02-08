@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painter Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+/* Glass Morphism Section Background */
+.glass-section {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  padding: 30px;
+}
+
+/* Section spacing on mobile */
+@media (max-width: 768px) {
+  .glass-section {
+    padding: 18px;
+  }
+}
+</style>
+<style>
+/* Contact Glass Form */
+.glass-form {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Premium Input Styling */
+.glass-input {
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
+  background: white;
+}
+
+/* Premium Button */
+.glass-btn {
+  border-radius: 999px;
+  padding: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+</style>
+
+
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .gallery-box {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.gallery-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-box:hover img {
+  transform: scale(1.1);
+}
+
+  </style>
+  <style>
+  .bubbles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .bubbles span {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: bubble 15s infinite ease-in;
+  }
+
+  .bubbles span:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-duration: 10s; }
+  .bubbles span:nth-child(2) { left: 20%; width: 50px; height: 50px; animation-duration: 12s; }
+  .bubbles span:nth-child(3) { left: 35%; width: 30px; height: 30px; animation-duration: 14s; }
+  .bubbles span:nth-child(4) { left: 50%; width: 60px; height: 60px; animation-duration: 18s; }
+  .bubbles span:nth-child(5) { left: 65%; width: 25px; height: 25px; animation-duration: 11s; }
+  .bubbles span:nth-child(6) { left: 75%; width: 45px; height: 45px; animation-duration: 15s; }
+  .bubbles span:nth-child(7) { left: 85%; width: 35px; height: 35px; animation-duration: 13s; }
+  .bubbles span:nth-child(8) { left: 90%; width: 55px; height: 55px; animation-duration: 17s; }
+  .bubbles span:nth-child(9) { left: 5%;  width: 30px; height: 30px; animation-duration: 16s; }
+  .bubbles span:nth-child(10){ left: 45%; width: 70px; height: 70px; animation-duration: 20s; }
+
+  @keyframes bubble {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-120vh) scale(1.3);
+      opacity: 0;
+    }
+  }
+</style>
+<style>
+/* Mobile Responsive Tweaks */
+@media (max-width: 768px) {
+
+  /* Navbar spacing */
+  nav .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav .space-x-4 a {
+    display: inline-block;
+    margin: 6px 8px;
+    font-size: 14px;
+  }
+
+  /* Hero Section */
+  #home h1 {
+    font-size: 28px;
+  }
+
+  #home p {
+    font-size: 16px;
+  }
+
+  #home .glass {
+    padding: 20px;
+  }
+
+  /* About Section */
+  #about img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Gallery height fix */
+  .gallery-box {
+    height: 200px;
+  }
+
+  /* Contact Section */
+  #contact .container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer text */
+  footer {
+    font-size: 14px;
+  }
+}
+</style>
+<style>
+/* Premium Blue Glow Background */
+.blue-glow-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.blue-glow-bg::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 140%;
+  height: 160%;
+  background: radial-gradient(circle at 30% 30%,
+    rgba(59,130,246,0.25),
+    rgba(59,130,246,0.12),
+    transparent 70%);
+  animation: glowMove 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translateX(-30px) translateY(-20px);
+  }
+  100% {
+    transform: translateX(30px) translateY(20px);
+  }
+}
+
+/* Make section content appear above glow */
+.blue-glow-bg > * {
+  position: relative;
+  z-index: 1;
+}
+</style>
+<style>
+/* Floating Leaf Animation in Navbar */
+.nav-decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nav-decor span {
+  position: absolute;
+  top: -10px;
+  font-size: 14px;
+  opacity: 0.6;
+  animation: floatLeaf 12s linear infinite;
+  color: #16a34a;
+}
+
+.nav-decor span:nth-child(1) { left: 5%;  animation-duration: 10s; }
+.nav-decor span:nth-child(2) { left: 15%; animation-duration: 14s; }
+.nav-decor span:nth-child(3) { left: 35%; animation-duration: 12s; }
+.nav-decor span:nth-child(4) { left: 55%; animation-duration: 16s; }
+.nav-decor span:nth-child(5) { left: 75%; animation-duration: 11s; }
+.nav-decor span:nth-child(6) { left: 90%; animation-duration: 15s; }
+
+@keyframes floatLeaf {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  20%  { opacity: 0.6; }
+  100% { transform: translateY(80px) rotate(180deg); opacity: 0; }
+}
+
+/* Navbar foreground fix */
+nav {
+  position: relative;
+  overflow: hidden;
+}
+nav .container {
+  position: relative;
+  z-index: 1;
+}
+</style>
+
+
+
+
+</head>
+<body class="bg-slate-100">
+
+<!-- Navbar -->
+<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow border-b border-white/30">
+  
+  <!-- Floating Leaves Decor -->
+  <div class="nav-decor">
+    <span>🌿</span>
+    <span>🍃</span>
+    <span>🌿</span>
+    <span>🍃</span>
+    <span>🌿</span>
+    <span>🍃</span>
+  </div>
+
+  <div class="container flex justify-between items-center px-4 py-2 relative z-10">
+    
+    <!-- Logo -->
+    <h1 class="text-xl font-bold text-orange-600 tracking-wide">
+      PainterPro
+    </h1>
+
+    <!-- Menu -->
+    <div class="flex items-center space-x-6 text-sm font-medium">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+<!-- Hero Section with Video Background -->
+<section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+    <source src="Teddy_Bear_Painter_Intro_Video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Content -->
+  <div class="relative glass text-white text-center p-10 z-10" data-aos="zoom-in">
+    <h1 class="text-5xl font-bold mb-4">Professional Wall Painter</h1>
+    <p class="text-xl mb-4">20+ Years Experience | 1000+ Projects</p>
+    <a href="#gallery" class="bg-orange-500 px-6 py-3 rounded-full text-white hover:bg-orange-600">
+      View Work
+    </a>
+  </div>
+
+</section>
+
+
+<!-- About -->
+<section id="about" class="py-20 container glass-section blue-glow-bg" data-aos="fade-up">
+
+  <div class="grid md:grid-cols-2 gap-10">
+    <img src="srinu_1_painter.jpg" class="rounded-xl shadow-lg">
+    <div>
+      <h2 class="text-4xl font-bold text-orange-600 mb-4">About Me</h2>
+<p class="text-lg leading-relaxed text-gray-700">
+  I am <span class="font-semibold text-orange-600">Srinu</span>, a professional wall painter with over 
+  <span class="font-semibold text-orange-600">20+ years of experience</span> and a strong portfolio of 
+  <span class="font-semibold text-orange-600">1000+ completed projects</span>.  
+  I specialize in interior & exterior painting, modern texture designs, waterproof coatings, and premium wall finishes.  
+  My goal is to deliver elegant, durable, and high-quality painting solutions with complete customer satisfaction.
+</p>
+>
+
+      <div class="grid grid-cols-2 gap-6 mt-6">
+        <div class="bg-white p-5 rounded-xl shadow text-center">
+          <h3 class="text-3xl font-bold text-orange-600">20+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl shadow text-center">
+          <h3 class="text-3xl font-bold text-orange-600">1000+</h3>
+          <p>Projects</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<!-- Gallery -->
+<section id="gallery" class="py-20 bg-slate-200 blue-glow-bg">
+  <div class="glass-section container mx-auto">
+
+  <h2 class="text-center text-4xl font-bold text-orange-600 mb-10" data-aos="fade-down">
+    Recent Wall Painting Works
+  </h2>
+  <p class="text-center text-gray-600 mb-8">
+    Premium texture finishes, modern designs, luxury interiors
+  </p>
+
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
+
+    <div class="gallery-box" data-aos="zoom-in">
+      <img src="img1.jpg" alt="Wall Painting">
+    </div>
+
+    <div class="gallery-box" data-aos="zoom-in">
+      <img src="img3.jpg" alt="Wall Painting">
+    </div>
+
+    <div class="gallery-box" data-aos="zoom-in">
+      <img src="img5.jpg" alt="Wall Painting">
+    </div>
+
+    <div class="gallery-box" data-aos="zoom-in">
+      <img src="img6.jpg" alt="Wall Painting">
+    </div>
+
+    <div class="gallery-box" data-aos="zoom-in">
+      <img src="img7.jpg" alt="Wall Painting">
+    </div>
+
+    <div class="gallery-box" data-aos="zoom-in">
+      <img src="img8.jpg" alt="Wall Painting">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Services -->
+<!-- Services -->
+<section id="services" class="py-20 container glass-section blue-glow-bg">
+  <h2 class="text-center text-4xl font-bold text-orange-600 mb-10" data-aos="fade-down">
+    Our Services
+  </h2>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition text-center" data-aos="zoom-in">
+      <i class="fa fa-paint-roller text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold">Interior Painting</h3>
+      <p class="text-gray-600 text-sm mt-2">Premium smooth & elegant finishes</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition text-center" data-aos="zoom-in">
+      <i class="fa fa-building text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold">Exterior Painting</h3>
+      <p class="text-gray-600 text-sm mt-2">Weather-resistant durable coatings</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition text-center" data-aos="zoom-in">
+      <i class="fa fa-brush text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold">Texture Designs</h3>
+      <p class="text-gray-600 text-sm mt-2">Modern decorative wall textures</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition text-center" data-aos="zoom-in">
+      <i class="fa fa-droplet text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold">Waterproof Coating</h3>
+      <p class="text-gray-600 text-sm mt-2">Leak protection & damp prevention</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition text-center" data-aos="zoom-in">
+      <i class="fa fa-star text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold">Wall Polishing</h3>
+      <p class="text-gray-600 text-sm mt-2">Luxury glossy wall finishes</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition text-center" data-aos="zoom-in">
+      <i class="fa fa-city text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold">Commercial Painting</h3>
+      <p class="text-gray-600 text-sm mt-2">Office, shop & industrial painting</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Paint Shop Details -->
+<!-- Trusted Paint Supplier -->
+<section class="py-20 bg-slate-100">
+  <h2 class="text-center text-4xl font-bold text-orange-600 mb-10" data-aos="fade-down">
+    Trusted Paint Supplier
+  </h2>
+
+  <div class="container grid md:grid-cols-3 gap-6 blue-glow-bg">
+
+    <!-- Shop Name -->
+    <div class="glass-section text-center" data-aos="zoom-in">
+      <i class="fa fa-store text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-2xl font-semibold">Padma Paints</h3>
+      <p class="text-gray-600">Authorized Paint Dealer</p>
+    </div>
+
+    <!-- Address -->
+    <div class="glass-section text-center" data-aos="zoom-in">
+      <i class="fa fa-location-dot text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-2xl font-semibold">Shop Address</h3>
+      <p class="text-gray-600">
+        Near Ongole - Kurnool Main Rd,<br>
+        Opposite Jawahar Hospital,<br>
+        Chimakurthy, Andhra Pradesh – 523226
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="glass-section text-center" data-aos="zoom-in">
+      <i class="fa fa-phone text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-2xl font-semibold">Contact</h3>
+      <p class="text-gray-600">+91 63036 08087</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Contact -->
+<section id="contact" class="py-20 bg-gray-900 text-white">
+  <h2 class="text-center text-4xl font-bold mb-10" data-aos="fade-down">Contact Me</h2>
+  <div class="container grid md:grid-cols-2 gap-10">
+    <div data-aos="fade-right">
+      <p><i class="fa fa-phone"></i> +91 9553340704</p>
+      <p><i class="fa fa-envelope"></i> srinu@gmail.com</p>
+      <p><i class="fa fa-location-dot"></i> CHIMAKURTHY, ANDHRA PRADESH</p>
+    </div>
+    <form class="glass-form p-6 text-black" data-aos="fade-left">
+
+      <input type="text" placeholder="Name" class="form-control mb-3 glass-input">
+
+<input type="email" placeholder="Email" class="form-control mb-3 glass-input">
+
+<textarea placeholder="Message" class="form-control mb-3 glass-input" rows="4"></textarea>
+
+<button class="btn btn-warning w-full glass-btn">Send Message</button>
+
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-white text-center p-4">
+  © 2026 Painter Portfolio | Designed by Vinod
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1200, once: true });
+</script>
+
+<!-- Floating Bubbles Background -->
+<div class="bubbles">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+
+</body>
+</html>
